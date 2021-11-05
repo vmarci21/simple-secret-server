@@ -12,11 +12,13 @@ require __DIR__ . '/vendor/autoload.php';
 $app = AppFactory::create();
 Utils::dbConnect();
 
+// Home page
 $app->get('/', function (Request $request, Response $response, $args) {
     $response->getBody()->write('Hello world!');
     return $response;
 });
 
+// Get one secret by hash
 $app->get('/secret/{hash}', function (Request $request, Response $response, $args) {
     $secrets = Secrets::getInstance();
     $secret = $secrets->getSecretByHash($args['hash']);
@@ -27,6 +29,7 @@ $app->get('/secret/{hash}', function (Request $request, Response $response, $arg
     return Utils::setResponse($request,$response,$secret,200,'Secret');
 });
 
+// Create new secret
 $app->post('/secret', function (Request $request, Response $response, $args) {
     $data = $request->getParsedBody();
 
