@@ -1,0 +1,4 @@
+<?php
+const CONFIG_DB_USER = 'db_user';
+const CONFIG_DB_PASSWORD = 'db_password';
+const CONFIG_DB_NAME = 'db_name';
