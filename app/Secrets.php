@@ -7,8 +7,7 @@ class Secrets {
     private function __construct(){
 
     }
-
-
+    
     public static function getInstance(): Secrets {
         if(self::$instance == null){
             self::$instance = new self();
@@ -41,6 +40,8 @@ class Secrets {
 
     public function getSecretByHash(string $hash){
         $parts = explode('-',$hash);
+
+        // invalid hash format
         if(count($parts) !== 2){
             return false;
         }
