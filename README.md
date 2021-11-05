@@ -11,5 +11,5 @@ Set the config file (config.php) int the root directory based on the config.php.
 Manage (create and read) secrets.
 ### App\Utils
 Utility functions. Currently it provides functions to:
-- Connect to the database
-- Set the type of the response based of the Accept header.
+- dbConnect: Connect to the database
+- setResponse: Format the type of the response based of the Accept header (JSON or XML).
